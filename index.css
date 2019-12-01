@@ -1,0 +1,116 @@
+body
+{background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url("indexBack1.jpg");
+height:100vh;
+background-size:cover;
+background-position:center;
+}
+.head h1{
+    margin-left: 450px;
+    margin-top:30px;
+    font-size: 84px;
+    /* font-family: Stencil Std, fantasy; */
+    font-family: arial;
+    /* letter-spacing: 1px; */
+    color: rgba(225,225, 225, 0.1);
+    background-image : url(galaxy1.jpg);
+    background-repeat:repeat-x;
+    -webkit-background-clip: text;
+    animation: animate 15s linear infinite; 
+
+}
+
+@keyframes animate{
+  0%{
+      background-position: left 0px top 10px;
+  }
+  40%{
+    background-position: left 800px top 10px;
+}
+}
+
+.navbar img
+{padding: 9px 17px;
+  width: 80px;
+height:auto;
+float:left;
+}
+
+.login-page
+{width:360px;
+padding:10% 0 0;
+margin:auto;
+}
+.form
+{position:relative;
+z-index:1;
+background:rgb(242, 217, 217,0.8);
+max-width: 250px;
+margin: 0 auto 100px;
+padding:45px;
+text-align:center;
+margin-top: -96px;
+}
+.form input
+{font-family:"Roboto","sans-serif";
+outline:1;
+background:#f2f2f2;
+width:100%;
+border:0;
+margin:0 0 15px;
+padding:15px;
+box-sizing:border-box;
+font-size:14px;
+}
+.form button
+{font-family:"Roboto","sans-serif";
+text-transform:uppercase;
+background:#4CAF50;
+width:100;
+border:0;
+padding:15px;
+color:#FFFFFF;
+font-size:14px;
+cursor:pointer;
+}
+.form button:hover, .form button:active
+{background:#43A047;
+}
+.form .message
+{margin:15px 0 0;
+color:aliceblue;
+font-size:14px;
+}
+.form .message a
+{color:	#006400;
+text-decoration:none;
+font-size:14px;
+}
+.form .register-form
+{display:none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

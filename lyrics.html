@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="lyrics.css">
+    <title>ENCORE</title>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body background="LyricBack5.jpg">
+        <div class="navbar">
+                <img src="logocircle.png">
+                <a class="active" href="home.html"><i class="fa fa-fw fa-home"></i> <font size="5">Home</font></a> 
+                <a href="mailto:dikshakalra26@gmail.com"><i class="fa fa-fw fa-envelope"></i> <font size="5">Contact</font></a> 
+            </div>
+    <p id="heading"><b><u>Lyrics</u></b></p>
+    <p id='display'>
+   </p>
+   <ul id="list">
+   </ul>
+    <script>
+     var data = null;       //genius-lyrics
+ var url="https://genius.p.rapidapi.com/search?q=Kendrick%20Lamar"
+var xhr = new XMLHttpRequest();
+// xhr.withCredentials = true;
+
+xhr.addEventListener("readystatechange", function () {
+	if (this.readyState === this.DONE) {
+        var res_data=JSON.parse(this.responseText)
+			console.log(res_data)
+        for(var i=0;i<res_data.response.hits.length;i++){
+        var url = document.getElementById('list');
+        var li = document.createElement('li');
+       
+        var anchor = document.createElement('a');
+         anchor.setAttribute('href',""+res_data.response.hits[i].result.url);
+         anchor.innerHTML =res_data.response.hits[i].result.full_title+"<br><br>";
+         li.appendChild(anchor);
+         url.appendChild(li);
+
+        }
+    };
+});
+
+xhr.open("GET", url);
+xhr.setRequestHeader("x-rapidapi-host", "genius.p.rapidapi.com");
+xhr.setRequestHeader("x-rapidapi-key", "87c65bb320msh909af169155f740p16d0dfjsn391a5273d354");
+
+xhr.send();
+    </script>
+
+<div class="footer-main-div">
+        <div class="footer-social-icons">
+          <ul>
+            <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://www.linkedin.com/feed/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://github.com/" target="_blank"><i class="fa fa-github"></i></a></li>
+      
+          </ul>
+        </div>
+        <div class="footer-menu-one">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="https://dikshakalra.github.io/" target="_blank">About us</a></li>
+            <li><a href="mailto:dikshakalra26@gmail.com">Contact us</a></li>
+          </ul>
+        </div>
+        <div class="footer-menu-two">
+          </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Made By: <a href="https://dikshakalra.github.io/" target="_blank"><b>Diksha Kalra</b></a></p>
+      </div>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<!-- Itunes search-->
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="search.css">
+    <title>ENCORE</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+    <div class="se">
+        <div class="navbar">
+                <img src="logocircle.png">
+          <a class="active" href="home.html"><i class="fa fa-fw fa-home"></i> <font size="5">Home</font></a> 
+          <a href="mailto:dikshakalra26@gmail.com"><i class="fa fa-fw fa-envelope"></i> <font size="5">Contact</font></a> 
+        </div>
+    
+    <div class="search">
+        <h1>Search</h1>
+        <div>
+            <p class="enter">Enter artist name: <input type="text" id="search" /></p>
+            <button class="btn" id="submit">Search</button>
+            <div class="row" id="output"></div>
+        </div>
+        <script>
+            let button = document.querySelector("#submit")
+            let input = document.querySelector('#search')
+            let output = document.querySelector('#output')
+            button.addEventListener('click', (e) => {
+                getDataFromItunes()
+            })
+            function getDataFromItunes() {
+                let url = 'https://itunes.apple.com/search?term=' + input.value + '&entity=musicVideo'
+                let cors = "https://cors-anywhere.herokuapp.com/"
+
+                fetch(cors + url)
+                    .then(data => data.json())
+                    .then(json => {
+                        console.log(json)
+                        let finalHTML = ''
+
+                        json.results.forEach(song => {
+                            finalHTML +=
+        `
+            <div class="col s4 m4 l4">
+            <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="${song.artworkUrl100}">
+            </div>
+            <div class="card-content"><font size="4">
+            <p>${song.artistName}</p></font>
+            <span class="card-title activator grey-text text-darken-4"><b>${song.trackCensoredName}</b><br>More Info</span>
+            
+            </div>
+            <div class="card-reveal"><font size="4">
+            <span class="card-title grey-text text-darken-4"><i class='fas fa-times'></i> <br><b>${song.trackCensoredName}<br><br></b></span></font>
+            <font size="3">
+            <p><b>Release Date:</b> ${song.releaseDate}<br><b>Primary Genre Name:</b> ${song.primaryGenreName}<br><b>Country:</b> ${song.country}
+            <br><br><a href="${song.trackViewUrl}" target="_blank"><b>Song Preview</b></a>
+            </font>
+            </p>
+            </div>
+            </div>
+            </div> 
+         `
+                        })
+                        output.innerHTML = finalHTML
+                    })
+                    .catch(error => console.log(error))
+            }
+
+
+        </script>
+    </div>
+
+    <div class="footer-main-div">
+            <div class="footer-social-icons">
+              <ul>
+                <li><a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.linkedin.com/feed/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="https://github.com/" target="_blank"><i class="fa fa-github"></i></a></li>
+          
+              </ul>
+            </div>
+            <div class="footer-menu-one">
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="https://dikshakalra.github.io/" target="_blank">About us</a></li>
+                <li><a href="mailto:dikshakalra26@gmail.com">Contact us</a></li>
+              </ul>
+            </div>
+            <div class="footer-menu-two">
+              </div>
+          </div>
+          <div class="footer-bottom">
+            <p>Made By: <a href="https://dikshakalra.github.io/" target="_blank"><b>Diksha Kalra</b></a></p>
+          </div></div>
+
+</body>
+
+</html>
