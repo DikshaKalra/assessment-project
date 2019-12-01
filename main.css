@@ -153,14 +153,14 @@ filter: blur(15px);
     margin-top: 50px;
 }
 #loved {
-  width: 26.5%;
-  margin-left:800px;
+  width: 23.5%;
+  margin-left:763px;
   height:90%;
   padding: 5%;
   border-radius: 5px;
   background: rgba(240,230,220, .7);
   box-shadow: 0 0 8px rgba(0, 0, 0, .7);
- margin-top: -16px;
+ margin-top: -18px;
 
 }
 .lyr {
