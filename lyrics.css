@@ -5,14 +5,14 @@
     margin-top: -7px;
   }
   body{
-    background-image: url(LyricBack5.jpg);
+    background-image: url(guitar1.jpg);
     background-repeat: no-repeat;
     background-color:black;
   }
 #heading{
   margin-top: -50px;
   text-align: center;
-  color:black;
+  color: white;
   font-size: 70px;
 }
 
@@ -44,16 +44,18 @@
       list-style-type: square;
      
     }
-  
+    ul li{
+      color: #fff7e6;
+    }
     #list a:link {
-      color: red;
-      font-size: 120%;
+      color: #fff7e6;
+      font-size: 150%;     
     }
     #list a:visited {
-      color: green;
+      color:  #ff1a1a;
     }
     #list a:hover {
-      color:  black;
+      color:  #cccc00;
     }
     #list a:active {
       color: blue;
@@ -182,7 +184,5 @@
         color: #ffffff;
       }
       .footer-bottom p a:hover{
-        color:#272727;
-      
-      
+        color:#272727; 
     }
