@@ -6,7 +6,7 @@
     <title>ENCORE</title>
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<body background="LyricBack5.jpg">
+<body>
         <div class="navbar">
                 <img src="logocircle.png">
                 <a class="active" href="home.html"><i class="fa fa-fw fa-home"></i> <font size="5">Home</font></a> 
@@ -18,22 +18,22 @@
    <ul id="list">
    </ul>
     <script>
-     var data = null;       //genius-lyrics
- var url="https://genius.p.rapidapi.com/search?q=Kendrick%20Lamar"
-var xhr = new XMLHttpRequest();
-// xhr.withCredentials = true;
 
+
+var data = null;       
+ var url="https://genius.p.rapidapi.com/artists/16775/songs"
+var xhr = new XMLHttpRequest();
 xhr.addEventListener("readystatechange", function () {
 	if (this.readyState === this.DONE) {
         var res_data=JSON.parse(this.responseText)
 			console.log(res_data)
-        for(var i=0;i<res_data.response.hits.length;i++){
+        for(var i=0;i<18;i++){
         var url = document.getElementById('list');
         var li = document.createElement('li');
        
         var anchor = document.createElement('a');
-         anchor.setAttribute('href',""+res_data.response.hits[i].result.url);
-         anchor.innerHTML =res_data.response.hits[i].result.full_title+"<br><br>";
+         anchor.setAttribute('href',""+res_data.response.songs[i].url);
+         anchor.innerHTML =res_data.response.songs[i].full_title+"<br><br>";
          li.appendChild(anchor);
          url.appendChild(li);
 
@@ -61,7 +61,7 @@ xhr.send();
         <div class="footer-menu-one">
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="https://dikshakalra.github.io/resume/" target="_blank">About us</a></li>
+            <li><a href="https://dikshakalra.github.io/" target="_blank">About us</a></li>
             <li><a href="mailto:dikshakalra26@gmail.com">Contact us</a></li>
           </ul>
         </div>
@@ -69,8 +69,9 @@ xhr.send();
           </div>
       </div>
       <div class="footer-bottom">
-        <p>Made By: <a href="https://dikshakalra.github.io/resume/" target="_blank"><b>Diksha Kalra</b></a></p>
+        <p>Made By: <a href="https://dikshakalra.github.io/" target="_blank"><b>Diksha Kalra</b></a></p>
       </div>
 </body>
 
 </html>
+
